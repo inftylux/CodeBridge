@@ -484,21 +484,6 @@ async function init() {
         return;
     }
 
-    document
-        .getElementById(
-            "copyBtn"
-        )
-        .addEventListener(
-            "click",
-            () => {
-
-                navigator.clipboard.writeText(
-                    files[
-                        currentLanguage
-                    ].content
-                );
-            }
-        );
 
     if (
         files.matlab &&

@@ -117,6 +117,29 @@ main {
     gap: 6px;
 }
 
+#leftGroup {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Visueller Abstand zwischen Sprach-Buttons und SBS-Button */
+.sbs-btn {
+    margin-left: 6px;
+    border-color: #999 !important;
+    color: #555 !important;
+}
+
+.sbs-btn:hover {
+    background: rgba(0,0,0,.05) !important;
+}
+
+.sbs-btn.active {
+    background: #1a1a2e !important;
+    color: white !important;
+    border-color: #1a1a2e !important;
+}
+
 .lang-btn {
     border: 1.5px solid var(--accent);
     background: transparent;
