@@ -250,6 +250,14 @@ function showSideBySide() {
         );
 
     document
+        .getElementById("btn-matlab")
+        .classList.add("active");
+
+    document
+        .getElementById("btn-" + rightLang)
+        .classList.add("active");
+
+    document
         .getElementById("sideBySideBtn")
         .classList.add("active");
 }
