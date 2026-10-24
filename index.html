@@ -48,6 +48,10 @@
                 Copy
             </button>
 
+            <button id="sideBySideBtn" class="hidden">
+                Side-by-Side
+            </button>
+
         </div>
 
     </div>
@@ -55,6 +59,20 @@
     <div id="status"></div>
 
     <pre id="viewer"><code id="sourceCode"></code></pre>
+
+    <div id="splitViewer" style="display:none">
+
+        <div class="panel-wrapper">
+            <div class="panel-label" id="labelLeft">MATLAB</div>
+            <pre class="panel"><code id="codeMatlab" class="language-matlab"></code></pre>
+        </div>
+
+        <div class="panel-wrapper">
+            <div class="panel-label" id="labelRight">Python</div>
+            <pre class="panel"><code id="codePython" class="language-python"></code></pre>
+        </div>
+
+    </div>
 
 </main>
 

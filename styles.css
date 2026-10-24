@@ -26,18 +26,32 @@ header {
 
     color: white;
 
-    padding: 20px;
+    padding: 8px 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
 }
 
 header h1 {
     margin: 0;
+    font-size: 1.1rem;
+    white-space: nowrap;
 }
 
 #simPath {
 
-    margin-top: 10px;
+    opacity: 0.7;
 
-    opacity: 0.8;
+    font-size: 0.85rem;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
 }
 
 #toolbar {
@@ -129,4 +143,49 @@ header h1 {
 
 .hidden {
     display: none;
+}
+
+/* Side-by-Side button active state */
+
+#sideBySideBtn.active {
+    background: #333;
+    color: white;
+    border-color: #333;
+}
+
+/* Split viewer */
+
+#splitViewer {
+    height: calc(100vh - 150px);
+    overflow: hidden;
+}
+
+.panel-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.panel-wrapper + .panel-wrapper {
+    border-left: 2px solid var(--border);
+}
+
+.panel-label {
+    padding: 4px 15px;
+    font-size: 0.72rem;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: #efefef;
+    border-bottom: 1px solid var(--border);
+    color: var(--accent);
+}
+
+.panel {
+    flex: 1;
+    margin: 0;
+    overflow: auto;
+    border-radius: 0;
 }

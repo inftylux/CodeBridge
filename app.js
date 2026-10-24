@@ -14,6 +14,7 @@ pythonGithub:
 };
 const files = {};
 let currentLanguage = null;
+let sideBySide = false;
 
 
 /* ------------------------------------- */
@@ -190,12 +191,106 @@ function addLanguageButton(
 
 
 /* ------------------------------------- */
+/* Side-by-Side                          */
+/* ------------------------------------- */
+
+function showSideBySide() {
+
+    sideBySide = true;
+
+    document
+        .getElementById("viewer")
+        .style.display = "none";
+
+    document
+        .getElementById("splitViewer")
+        .style.display = "flex";
+
+    const matlabCode =
+        document.getElementById("codeMatlab");
+
+    matlabCode.textContent =
+        files.matlab.content;
+
+    matlabCode.className =
+        "language-matlab";
+
+    Prism.highlightElement(matlabCode);
+
+    const rightLang =
+        files.python ? "python" : "notebook";
+
+    const rightCode =
+        document.getElementById("codePython");
+
+    rightCode.textContent =
+        files[rightLang].content;
+
+    rightCode.className =
+        "language-python";
+
+    Prism.highlightElement(rightCode);
+
+    document
+        .getElementById("labelRight")
+        .textContent =
+        files.python ? "Python" : "Notebook";
+
+    document
+        .querySelectorAll(".lang-btn")
+        .forEach(b =>
+            b.classList.remove("active")
+        );
+
+    document
+        .getElementById("sideBySideBtn")
+        .classList.add("active");
+}
+
+
+function hideSideBySide() {
+
+    sideBySide = false;
+
+    document
+        .getElementById("splitViewer")
+        .style.display = "none";
+
+    document
+        .getElementById("viewer")
+        .style.display = "";
+
+    document
+        .getElementById("sideBySideBtn")
+        .classList.remove("active");
+}
+
+
+function toggleSideBySide() {
+
+    if (sideBySide) {
+
+        hideSideBySide();
+        showLanguage(currentLanguage);
+
+    } else {
+
+        showSideBySide();
+    }
+}
+
+
+/* ------------------------------------- */
 /* Anzeige                               */
 /* ------------------------------------- */
 
 function showLanguage(
     language
 ) {
+
+    if (sideBySide) {
+        hideSideBySide();
+    }
 
     currentLanguage =
         language;
@@ -384,6 +479,24 @@ async function init() {
                 );
             }
         );
+
+    if (
+        files.matlab &&
+        (files.python || files.notebook)
+    ) {
+
+        const sbsBtn =
+            document.getElementById(
+                "sideBySideBtn"
+            );
+
+        sbsBtn.classList.remove("hidden");
+
+        sbsBtn.addEventListener(
+            "click",
+            toggleSideBySide
+        );
+    }
 }
 
 
