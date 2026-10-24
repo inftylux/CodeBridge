@@ -244,11 +244,6 @@ function showSideBySide() {
     Prism.highlightElement(rightCode);
 
     document
-        .getElementById("labelRight")
-        .textContent =
-        files.python ? "Python" : "Notebook";
-
-    document
         .querySelectorAll(".lang-btn")
         .forEach(b =>
             b.classList.remove("active")
