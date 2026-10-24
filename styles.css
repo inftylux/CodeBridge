@@ -1,172 +1,212 @@
+/* =========================================
+   Design-Tokens
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 :root {
+    --accent:      #1565c0;
+    --accent-soft: rgba(21, 101, 192, 0.08);
 
-    --accent: #1565c0;
+    --bg:          #e8eaed;          /* dezent grau */
+    --surface:     #ffffff;          /* schwebendes Objekt */
+    --header:      #1a1a2e;          /* tiefes Dunkelblau statt reines Schwarz */
 
-    --bg: #fafafa;
-    --header: #222;
+    --border:      #d0d4db;
+    --shadow-sm:   0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+    --shadow-md:   0 4px 12px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.07);
+    --shadow-lg:   0 8px 28px rgba(0,0,0,.13), 0 4px 10px rgba(0,0,0,.08);
 
-    --border: #d0d0d0;
+    --radius:      12px;
+    --radius-sm:   8px;
 }
 
-* {
-    box-sizing: border-box;
-}
+/* =========================================
+   Reset & Basis
+   ========================================= */
+
+* { box-sizing: border-box; }
 
 body {
-
     margin: 0;
     background: var(--bg);
-
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 14px;
+    color: #1a1a2e;
 }
 
+/* =========================================
+   Header
+   ========================================= */
+
 header {
-
     background: var(--header);
-
     color: white;
-
-    padding: 8px 20px;
-
+    padding: 0 24px;
+    height: 48px;
     display: flex;
-
     align-items: center;
-
     gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
 }
 
 header h1 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .01em;
     white-space: nowrap;
 }
 
 header h1 a {
     color: white;
     text-decoration: none;
+    transition: opacity .15s;
 }
 
-header h1 a:hover {
-    text-decoration: underline;
-}
+header h1 a:hover { opacity: .8; }
 
 #simPath {
-
-    opacity: 0.7;
-
-    font-size: 0.85rem;
-
+    opacity: .6;
+    font-size: .8rem;
     overflow: hidden;
-
     text-overflow: ellipsis;
-
     white-space: nowrap;
+    font-weight: 400;
 }
 
-#toolbar {
+/* =========================================
+   Main-Wrapper – padding um das Card
+   ========================================= */
 
+main {
+    padding: 16px;
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: calc(100vh - 48px);
+}
 
+/* =========================================
+   Card (schwebendes Objekt)
+   ========================================= */
+
+.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* =========================================
+   Toolbar
+   ========================================= */
+
+#toolbar {
+    display: flex;
     justify-content: space-between;
-
     align-items: center;
-
-    padding: 15px;
-
+    padding: 10px 16px;
     border-bottom: 1px solid var(--border);
-
     flex-wrap: wrap;
-
-    gap: 10px;
+    gap: 8px;
+    background: var(--surface);
+    border-radius: var(--radius) var(--radius) 0 0;
 }
 
 #languageButtons {
-
     display: flex;
-
-    gap: 10px;
+    gap: 6px;
 }
 
 .lang-btn {
-
-    border: 2px solid var(--accent);
-
-    background: white;
-
+    border: 1.5px solid var(--accent);
+    background: transparent;
     color: var(--accent);
-
-    border-radius: 6px;
-
-    padding: 8px 12px;
-
+    border-radius: 20px;           /* Pill-Form */
+    padding: 5px 14px;
+    font-size: .8rem;
+    font-weight: 500;
+    font-family: inherit;
     cursor: pointer;
+    transition: background .15s, color .15s, box-shadow .15s;
+}
+
+.lang-btn:hover {
+    background: var(--accent-soft);
+    box-shadow: var(--shadow-sm);
 }
 
 .lang-btn.active {
-
     background: var(--accent);
-
     color: white;
+    box-shadow: var(--shadow-sm);
 }
 
 .actions {
-
     display: flex;
-
-    gap: 10px;
+    gap: 6px;
+    align-items: center;
 }
 
 .actions a,
 .actions button {
-
-    border: 1px solid #aaa;
-
-    padding: 8px 12px;
-
-    background: white;
-
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    background: var(--surface);
     text-decoration: none;
-
-    color: black;
-
-    border-radius: 6px;
-
+    color: #444;
+    border-radius: 20px;
+    font-size: .8rem;
+    font-weight: 500;
+    font-family: inherit;
     cursor: pointer;
+    transition: background .15s, box-shadow .15s, border-color .15s;
 }
 
-#viewer {
-
-    margin: 0;
-
-    height: calc(100vh - 150px);
-
-    overflow: auto;
+.actions a:hover,
+.actions button:hover {
+    background: #f4f4f4;
+    border-color: #bbb;
+    box-shadow: var(--shadow-sm);
 }
-
-#status {
-
-    padding: 20px;
-
-    font-style: italic;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Side-by-Side button active state */
 
 #sideBySideBtn.active {
-    background: #333;
+    background: #1a1a2e;
     color: white;
-    border-color: #333;
+    border-color: #1a1a2e;
 }
 
-/* Split viewer */
+/* =========================================
+   Status
+   ========================================= */
+
+#status {
+    padding: 20px;
+    font-style: italic;
+    color: #666;
+}
+
+/* =========================================
+   Viewer (Einzelansicht) – schwebendes Card
+   ========================================= */
+
+#viewer {
+    margin: 0;
+    flex: 1;
+    overflow: auto;
+    border-radius: 0 0 var(--radius) var(--radius);
+    position: relative;          /* für line-numbers-plugin */
+}
+
+/* =========================================
+   Split-Viewer
+   ========================================= */
 
 #splitViewer {
-    height: calc(100vh - 150px);
+    flex: 1;
     overflow: hidden;
+    border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .panel-wrapper {
@@ -182,12 +222,12 @@ header h1 a:hover {
 }
 
 .panel-label {
-    padding: 4px 15px;
-    font-size: 0.72rem;
-    font-weight: bold;
-    letter-spacing: 0.06em;
+    padding: 5px 16px;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .08em;
     text-transform: uppercase;
-    background: #efefef;
+    background: #f7f8fa;
     border-bottom: 1px solid var(--border);
     color: var(--accent);
 }
@@ -197,35 +237,35 @@ header h1 a:hover {
     margin: 0;
     overflow: auto;
     border-radius: 0;
-    /* line-numbers plugin needs position:relative – enforce it */
     position: relative;
 }
 
-/* Background tints per language */
+/* =========================================
+   Utilities
+   ========================================= */
+
+.hidden { display: none; }
+
+/* =========================================
+   Hintergrundfarben per Sprache
+   ========================================= */
 
 .bg-matlab,
-#panelMatlab {
-    background: #f0f5ff !important;
-}
-
-.bg-python {
-    background: #fff5f5 !important;
-}
-
-.bg-notebook {
-    background: #f9f0ff !important;
-}
-
-#panelPython.bg-python   { background: #fff5f5 !important; }
-#panelPython.bg-notebook { background: #f9f0ff !important; }
-
-/* Move styles.css after Prism so our rules win at equal specificity */
+#panelMatlab,
 pre.bg-matlab  { background: #f0f5ff !important; }
+
+.bg-python,
+#panelPython.bg-python,
 pre.bg-python  { background: #fff5f5 !important; }
+
+.bg-notebook,
+#panelPython.bg-notebook,
 pre.bg-notebook{ background: #f9f0ff !important; }
 
-/* Keep line-numbers gutter from being cut off in flex panels */
+/* =========================================
+   Line-numbers Einzug
+   ========================================= */
+
 pre[class*="language-"].line-numbers {
     padding-left: 3.8em;
 }
-
