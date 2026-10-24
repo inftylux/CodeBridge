@@ -121,7 +121,7 @@ main {
     border: 1.5px solid var(--accent);
     background: transparent;
     color: var(--accent);
-    border-radius: 20px;           /* Pill-Form */
+    border-radius: 20px;
     padding: 5px 14px;
     font-size: .8rem;
     font-weight: 500;
@@ -140,6 +140,20 @@ main {
     color: white;
     box-shadow: var(--shadow-sm);
 }
+
+/* Feste Farben pro Sprache – unabhängig von --accent */
+
+#btn-matlab               { border-color: #1565c0; color: #1565c0; }
+#btn-matlab:hover         { background: rgba(21, 101, 192, 0.07); }
+#btn-matlab.active        { background: #1565c0; color: white; border-color: #1565c0; }
+
+#btn-python               { border-color: #c62828; color: #c62828; }
+#btn-python:hover         { background: rgba(198, 40, 40, 0.07); }
+#btn-python.active        { background: #c62828; color: white; border-color: #c62828; }
+
+#btn-notebook             { border-color: #7b1fa2; color: #7b1fa2; }
+#btn-notebook:hover       { background: rgba(123, 31, 162, 0.07); }
+#btn-notebook.active      { background: #7b1fa2; color: white; border-color: #7b1fa2; }
 
 .actions {
     display: flex;
@@ -281,15 +295,15 @@ main {
 
 .bg-matlab,
 #panelMatlab,
-pre.bg-matlab  { background: #f0f5ff !important; }
+pre.bg-matlab  { background: #f4f7ff !important; }
 
 .bg-python,
 #panelPython.bg-python,
-pre.bg-python  { background: #fff5f5 !important; }
+pre.bg-python  { background: #fff6f6 !important; }
 
 .bg-notebook,
 #panelPython.bg-notebook,
-pre.bg-notebook{ background: #f9f0ff !important; }
+pre.bg-notebook{ background: #fdf7ff !important; }
 
 /* =========================================
    Line-numbers Einzug
