@@ -41,6 +41,15 @@ header h1 {
     white-space: nowrap;
 }
 
+header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+header h1 a:hover {
+    text-decoration: underline;
+}
+
 #simPath {
 
     opacity: 0.7;
