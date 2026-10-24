@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CodeBridge</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Prism -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-matlab.min.js"></script>
+</head>
+
+<body>
+
+<header>
+    <h1>CodeBridge</h1>
+
+    <div id="simPath">
+        Kein Beispiel ausgewählt
+    </div>
+</header>
+
+<main>
+
+    <div id="toolbar">
+
+        <div id="languageButtons">
+        </div>
+
+        <div class="actions">
+
+            <a id="githubLink"
+               href="#"
+               target="_blank">
+                GitHub
+            </a>
+
+            <button id="copyBtn">
+                Copy
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="status"></div>
+
+    <pre id="viewer"><code id="sourceCode"></code></pre>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>

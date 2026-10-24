@@ -1,0 +1,132 @@
+:root {
+
+    --accent: #1565c0;
+
+    --bg: #fafafa;
+    --header: #222;
+
+    --border: #d0d0d0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+    background: var(--bg);
+
+    font-family: Arial, sans-serif;
+}
+
+header {
+
+    background: var(--header);
+
+    color: white;
+
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+#simPath {
+
+    margin-top: 10px;
+
+    opacity: 0.8;
+}
+
+#toolbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px;
+
+    border-bottom: 1px solid var(--border);
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+#languageButtons {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.lang-btn {
+
+    border: 2px solid var(--accent);
+
+    background: white;
+
+    color: var(--accent);
+
+    border-radius: 6px;
+
+    padding: 8px 12px;
+
+    cursor: pointer;
+}
+
+.lang-btn.active {
+
+    background: var(--accent);
+
+    color: white;
+}
+
+.actions {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.actions a,
+.actions button {
+
+    border: 1px solid #aaa;
+
+    padding: 8px 12px;
+
+    background: white;
+
+    text-decoration: none;
+
+    color: black;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+#viewer {
+
+    margin: 0;
+
+    height: calc(100vh - 150px);
+
+    overflow: auto;
+}
+
+#status {
+
+    padding: 20px;
+
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
+}
