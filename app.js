@@ -199,7 +199,7 @@ function showSideBySide() {
     sideBySide = true;
 
     document
-        .getElementById("viewer")
+        .getElementById("singleViewer")
         .style.display = "none";
 
     document
@@ -269,7 +269,7 @@ function hideSideBySide() {
         .style.display = "none";
 
     document
-        .getElementById("viewer")
+        .getElementById("singleViewer")
         .style.display = "";
 
     document
