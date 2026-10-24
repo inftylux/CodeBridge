@@ -188,4 +188,35 @@ header h1 {
     margin: 0;
     overflow: auto;
     border-radius: 0;
+    /* line-numbers plugin needs position:relative – enforce it */
+    position: relative;
 }
+
+/* Background tints per language */
+
+.bg-matlab,
+#panelMatlab {
+    background: #f0f5ff !important;
+}
+
+.bg-python {
+    background: #fff5f5 !important;
+}
+
+.bg-notebook {
+    background: #f9f0ff !important;
+}
+
+#panelPython.bg-python   { background: #fff5f5 !important; }
+#panelPython.bg-notebook { background: #f9f0ff !important; }
+
+/* Move styles.css after Prism so our rules win at equal specificity */
+pre.bg-matlab  { background: #f0f5ff !important; }
+pre.bg-python  { background: #fff5f5 !important; }
+pre.bg-notebook{ background: #f9f0ff !important; }
+
+/* Keep line-numbers gutter from being cut off in flex panels */
+pre[class*="language-"].line-numbers {
+    padding-left: 3.8em;
+}
+

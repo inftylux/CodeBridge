@@ -220,6 +220,18 @@ function showSideBySide() {
     const rightLang =
         files.python ? "python" : "notebook";
 
+    const panelPy =
+        document.getElementById("panelPython");
+
+    panelPy.classList.remove(
+        "bg-python",
+        "bg-notebook"
+    );
+
+    panelPy.classList.add(
+        "bg-" + rightLang
+    );
+
     const rightCode =
         document.getElementById("codePython");
 
@@ -296,6 +308,19 @@ function showLanguage(
         language;
 
     setTheme(language);
+
+    const viewer =
+        document.getElementById("viewer");
+
+    viewer.classList.remove(
+        "bg-matlab",
+        "bg-python",
+        "bg-notebook"
+    );
+
+    viewer.classList.add(
+        "bg-" + language
+    );
 
     const file =
         files[language];
